@@ -11,15 +11,21 @@ import 'package:mockito/mockito.dart' as _i1;
 import 'package:practice1_app/core/error/failure.dart' as _i7;
 import 'package:practice1_app/core/network/client.dart' as _i4;
 import 'package:practice1_app/features/posts/data/datasources/post_remote_data_source.dart'
-    as _i9;
-import 'package:practice1_app/features/posts/data/models/post_model.dart'
     as _i10;
+import 'package:practice1_app/features/posts/data/models/comment_model.dart'
+    as _i12;
+import 'package:practice1_app/features/posts/data/models/post_model.dart'
+    as _i11;
+import 'package:practice1_app/features/posts/domain/entities/comment_entity.dart'
+    as _i9;
 import 'package:practice1_app/features/posts/domain/entities/post_entity.dart'
     as _i8;
 import 'package:practice1_app/features/posts/domain/repositories/post_repository.dart'
     as _i6;
+import 'package:practice1_app/features/posts/domain/usecases/get_comments_by_post_id.dart'
+    as _i14;
 import 'package:practice1_app/features/posts/domain/usecases/get_posts.dart'
-    as _i11;
+    as _i13;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -252,31 +258,62 @@ class MockPostRepository extends _i1.Mock implements _i6.PostRepository {
           ),
         )),
       ) as _i5.Future<_i3.Either<_i7.RemoteFailure, List<_i8.PostEntity>>>);
+
+  @override
+  _i5.Future<_i3.Either<_i7.RemoteFailure, List<_i9.CommentEntity>>>
+      getCommentsByPostId(int? postId) => (super.noSuchMethod(
+            Invocation.method(
+              #getCommentsByPostId,
+              [postId],
+            ),
+            returnValue: _i5.Future<
+                    _i3
+                    .Either<_i7.RemoteFailure, List<_i9.CommentEntity>>>.value(
+                _FakeEither_1<_i7.RemoteFailure, List<_i9.CommentEntity>>(
+              this,
+              Invocation.method(
+                #getCommentsByPostId,
+                [postId],
+              ),
+            )),
+          ) as _i5
+              .Future<_i3.Either<_i7.RemoteFailure, List<_i9.CommentEntity>>>);
 }
 
 /// A class which mocks [PostRemoteDataSource].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockPostRemoteDataSource extends _i1.Mock
-    implements _i9.PostRemoteDataSource {
+    implements _i10.PostRemoteDataSource {
   MockPostRemoteDataSource() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i5.Future<List<_i10.PostModel>> getPosts() => (super.noSuchMethod(
+  _i5.Future<List<_i11.PostModel>> getPosts() => (super.noSuchMethod(
         Invocation.method(
           #getPosts,
           [],
         ),
-        returnValue: _i5.Future<List<_i10.PostModel>>.value(<_i10.PostModel>[]),
-      ) as _i5.Future<List<_i10.PostModel>>);
+        returnValue: _i5.Future<List<_i11.PostModel>>.value(<_i11.PostModel>[]),
+      ) as _i5.Future<List<_i11.PostModel>>);
+
+  @override
+  _i5.Future<List<_i12.CommentModel>> getCommentsByPostId(int? postId) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getCommentsByPostId,
+          [postId],
+        ),
+        returnValue:
+            _i5.Future<List<_i12.CommentModel>>.value(<_i12.CommentModel>[]),
+      ) as _i5.Future<List<_i12.CommentModel>>);
 }
 
 /// A class which mocks [GetPostsUsecase].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockGetPostsUsecase extends _i1.Mock implements _i11.GetPostsUsecase {
+class MockGetPostsUsecase extends _i1.Mock implements _i13.GetPostsUsecase {
   MockGetPostsUsecase() {
     _i1.throwOnMissingStub(this);
   }
@@ -298,4 +335,35 @@ class MockGetPostsUsecase extends _i1.Mock implements _i11.GetPostsUsecase {
           ),
         )),
       ) as _i5.Future<_i3.Either<_i7.RemoteFailure, List<_i8.PostEntity>>>);
+}
+
+/// A class which mocks [GetCommentsByPostIdUseCase].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockGetCommentsByPostIdUseCase extends _i1.Mock
+    implements _i14.GetCommentsByPostIdUseCase {
+  MockGetCommentsByPostIdUseCase() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i5.Future<_i3.Either<_i7.RemoteFailure, List<_i9.CommentEntity>>> execute(
+          {required int? postId}) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #execute,
+          [],
+          {#postId: postId},
+        ),
+        returnValue: _i5.Future<
+                _i3.Either<_i7.RemoteFailure, List<_i9.CommentEntity>>>.value(
+            _FakeEither_1<_i7.RemoteFailure, List<_i9.CommentEntity>>(
+          this,
+          Invocation.method(
+            #execute,
+            [],
+            {#postId: postId},
+          ),
+        )),
+      ) as _i5.Future<_i3.Either<_i7.RemoteFailure, List<_i9.CommentEntity>>>);
 }

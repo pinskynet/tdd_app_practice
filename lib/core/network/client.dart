@@ -7,7 +7,7 @@ import 'package:injectable/injectable.dart';
 import 'package:practice1_app/core/configs/app_config.dart';
 import 'package:practice1_app/core/error/exception.dart';
 
-@injectable
+@singleton
 class DioClient {
   late final Dio _dio;
 

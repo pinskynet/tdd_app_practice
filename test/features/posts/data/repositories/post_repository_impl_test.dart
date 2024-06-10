@@ -19,7 +19,7 @@ void main() {
     postRepositoryImpl = PostRepositoryImpl(mockPostRemoteDataSource);
   });
 
-  const tPostModels = PostModelFixture.postModels;
+  final tPostModels = PostModelFixture.postModels;
   const tPostEntities = PostEntityFixture.postEntities;
   var serverException = ServerException('error');
 

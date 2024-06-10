@@ -8,13 +8,13 @@ import '../../../../helpers/json_reader.dart';
 import '../../dummy/post_fixture.dart';
 
 void main() {
-  const tPostModel = PostModelFixture.post2;
+  final tPostModel = PostModelFixture.post1;
 
   test(
     'should be a subclass of post entity',
     () async {
       // act
-      final result = tPostModel.toEnity();
+      final result = tPostModel.toEntity();
 
       // assert
       expect(result, isA<PostEntity>());
@@ -32,7 +32,7 @@ void main() {
       final result = PostModel.fromJson(jsonData);
 
       // assert
-      expect(result, equals(tPostModel));
+      expect(result, tPostModel);
     },
   );
 }

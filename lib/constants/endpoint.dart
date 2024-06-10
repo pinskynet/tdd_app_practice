@@ -1,3 +1,4 @@
 class Endpoint {
-  static const posts = '/posts1';
+  static const posts = '/posts';
+  static const comments = '/comments';
 }

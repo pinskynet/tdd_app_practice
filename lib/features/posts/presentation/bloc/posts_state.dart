@@ -22,7 +22,10 @@ class PostsLoadFailure extends PostsState {
   });
 
   @override
-  List<Object?> get props => [message,statusCode,];
+  List<Object?> get props => [
+        message,
+        statusCode,
+      ];
 }
 
 class PostsLoadSuccess extends PostsState {
@@ -34,4 +37,33 @@ class PostsLoadSuccess extends PostsState {
 
   @override
   List<Object> get props => [posts];
+}
+
+class CommentsLoading extends PostsState {}
+
+class CommentLoadFailure extends PostsState {
+  final String message;
+  final int? statusCode;
+
+  const CommentLoadFailure({
+    required this.message,
+    this.statusCode,
+  });
+
+  @override
+  List<Object?> get props => [
+        message,
+        statusCode,
+      ];
+}
+
+class CommentsLoadSuccess extends PostsState {
+  final List<CommentEntity> comments;
+
+  const CommentsLoadSuccess({
+    required this.comments,
+  });
+
+  @override
+  List<Object> get props => [comments];
 }
