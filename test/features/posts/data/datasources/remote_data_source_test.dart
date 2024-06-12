@@ -6,7 +6,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:practice1_app/constants/endpoint.dart';
 import 'package:practice1_app/core/error/exception.dart';
-import 'package:practice1_app/features/posts/data/datasources/post_remote_data_source.dart';
+import 'package:practice1_app/features/posts/data/datasources/remote/post_remote_data_source.dart';
 import 'package:practice1_app/features/posts/data/models/post_model.dart';
 
 import '../../../../helpers/json_reader.dart';

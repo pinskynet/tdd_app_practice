@@ -5,10 +5,7 @@ abstract class Failure extends Equatable {
   final String message;
   final int? statusCode;
 
-  const Failure(
-    this.message,
-    this.statusCode,
-  );
+  const Failure(this.message, {this.statusCode});
 
   @override
   List<Object> get props => [message];
@@ -16,7 +13,7 @@ abstract class Failure extends Equatable {
 
 class RemoteFailure extends Failure {
   const RemoteFailure._(String message, {int? statusCode})
-      : super(message, statusCode);
+      : super(message, statusCode: statusCode);
 
   factory RemoteFailure(String message, {int? statusCode}) =>
       RemoteFailure._(message, statusCode: statusCode);
@@ -33,4 +30,23 @@ class RemoteFailure extends Failure {
 
   @override
   String toString() => 'Remote failure: ${super.message}';
+}
+
+class LocalFailure extends Failure {
+  const LocalFailure._(String message) : super(message);
+
+  factory LocalFailure(String message) => LocalFailure._(message);
+
+  @override
+  bool operator ==(covariant LocalFailure other) {
+    if (identical(this, other)) return true;
+
+    return other.message == message;
+  }
+
+  @override
+  int get hashCode => super.message.hashCode;
+
+  @override
+  String toString() => 'Local failure: ${super.message}';
 }

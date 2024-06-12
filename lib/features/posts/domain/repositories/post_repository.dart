@@ -7,4 +7,6 @@ abstract class PostRepository {
   Future<Either<RemoteFailure, List<PostEntity>>> getPosts();
   Future<Either<RemoteFailure, List<CommentEntity>>> getCommentsByPostId(
       int postId);
+  Future<Either<LocalFailure, List<PostEntity>>> getLocalPosts();
+  Future<Either<LocalFailure, bool>> savePosts(List<PostEntity> posts);
 }

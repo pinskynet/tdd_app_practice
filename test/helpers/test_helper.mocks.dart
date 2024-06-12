@@ -10,7 +10,7 @@ import 'package:dio/dio.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:practice1_app/core/error/failure.dart' as _i7;
 import 'package:practice1_app/core/network/client.dart' as _i4;
-import 'package:practice1_app/features/posts/data/datasources/post_remote_data_source.dart'
+import 'package:practice1_app/features/posts/data/datasources/remote/post_remote_data_source.dart'
     as _i10;
 import 'package:practice1_app/features/posts/data/models/comment_model.dart'
     as _i12;
@@ -278,6 +278,42 @@ class MockPostRepository extends _i1.Mock implements _i6.PostRepository {
             )),
           ) as _i5
               .Future<_i3.Either<_i7.RemoteFailure, List<_i9.CommentEntity>>>);
+
+  @override
+  _i5.Future<_i3.Either<_i7.LocalFailure, List<_i8.PostEntity>>>
+      getLocalPosts() => (super.noSuchMethod(
+            Invocation.method(
+              #getLocalPosts,
+              [],
+            ),
+            returnValue: _i5.Future<
+                    _i3.Either<_i7.LocalFailure, List<_i8.PostEntity>>>.value(
+                _FakeEither_1<_i7.LocalFailure, List<_i8.PostEntity>>(
+              this,
+              Invocation.method(
+                #getLocalPosts,
+                [],
+              ),
+            )),
+          ) as _i5.Future<_i3.Either<_i7.LocalFailure, List<_i8.PostEntity>>>);
+
+  @override
+  _i5.Future<_i3.Either<_i7.LocalFailure, bool>> savePosts(
+          List<_i8.PostEntity>? posts) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #savePosts,
+          [posts],
+        ),
+        returnValue: _i5.Future<_i3.Either<_i7.LocalFailure, bool>>.value(
+            _FakeEither_1<_i7.LocalFailure, bool>(
+          this,
+          Invocation.method(
+            #savePosts,
+            [posts],
+          ),
+        )),
+      ) as _i5.Future<_i3.Either<_i7.LocalFailure, bool>>);
 }
 
 /// A class which mocks [PostRemoteDataSource].
